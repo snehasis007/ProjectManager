@@ -1,0 +1,16 @@
+com\cts\projectmanager\service\IProjectManager.class
+com\cts\projectmanager\repository\ParentTaskRepository.class
+com\cts\projectmanager\model\User.class
+com\cts\projectmanager\model\PmBase.class
+com\cts\projectmanager\repository\ProjectRepository.class
+com\cts\projectmanager\model\ParentTask.class
+com\cts\projectmanager\repository\UserRepository.class
+com\cts\projectmanager\model\Project.class
+com\cts\projectmanager\repository\TaskRepository.class
+com\cts\projectmanager\model\PmError.class
+com\cts\projectmanager\ProjectManager.class
+com\cts\projectmanager\exception\PmException.class
+com\cts\projectmanager\model\ServiceResult.class
+com\cts\projectmanager\model\Task.class
+com\cts\projectmanager\service\ProjectManagerImpl.class
+com\cts\projectmanager\web\ProjectController.class

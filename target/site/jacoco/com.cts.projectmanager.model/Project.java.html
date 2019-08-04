@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Project.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectmanager</a> &gt; <a href="index.source.html" class="el_package">com.cts.projectmanager.model</a> &gt; <span class="el_source">Project.java</span></div><h1>Project.java</h1><pre class="source lang-java linenums">package com.cts.projectmanager.model;
+
+import java.util.List;
+
+import org.springframework.data.annotation.Id;
+
+
+public class Project extends PmBase{
+	@Id
+    private String id;
+	private String project;
+	private String startDate;
+	private String endDate;
+	private Integer priority;
+	private User manager;
+	private String isSuspended;
+	private Integer noOfTask;
+	private Integer noOfTaskCompleted;
+	
+	
+
+<span class="fc" id="L22">	public Project() {</span>
+		
+<span class="fc" id="L24">	}</span>
+
+	public Project(String project, String startDate, String endDate, Integer priority, User manager, String isSuspended,
+			Integer noOfTask, Integer noOfTaskCompleted) {
+<span class="nc" id="L28">		super();</span>
+<span class="nc" id="L29">		this.project = project;</span>
+<span class="nc" id="L30">		this.startDate = startDate;</span>
+<span class="nc" id="L31">		this.endDate = endDate;</span>
+<span class="nc" id="L32">		this.priority = priority;</span>
+<span class="nc" id="L33">		this.manager = manager;</span>
+<span class="nc" id="L34">		this.isSuspended = isSuspended;</span>
+<span class="nc" id="L35">		this.noOfTask = noOfTask;</span>
+<span class="nc" id="L36">		this.noOfTaskCompleted = noOfTaskCompleted;</span>
+<span class="nc" id="L37">	}</span>
+	
+	public Integer getNoOfTask() {
+<span class="fc" id="L40">		return noOfTask;</span>
+	}
+
+	public void setNoOfTask(Integer noOfTask) {
+<span class="nc" id="L44">		this.noOfTask = noOfTask;</span>
+<span class="nc" id="L45">	}</span>
+
+	public Integer getNoOfTaskCompleted() {
+<span class="fc" id="L48">		return noOfTaskCompleted;</span>
+	}
+
+	public void setNoOfTaskCompleted(Integer noOfTaskCompleted) {
+<span class="nc" id="L52">		this.noOfTaskCompleted = noOfTaskCompleted;</span>
+<span class="nc" id="L53">	}</span>
+
+	public String getIsSuspended() {
+<span class="fc" id="L56">		return isSuspended;</span>
+	}
+	public void setIsSuspended(String isSuspended) {
+<span class="nc" id="L59">		this.isSuspended = isSuspended;</span>
+<span class="nc" id="L60">	}</span>
+	public String getId() {
+<span class="fc" id="L62">		return id;</span>
+	}
+	public void setId(String id) {
+<span class="fc" id="L65">		this.id = id;</span>
+<span class="fc" id="L66">	}</span>
+	public String getProject() {
+<span class="fc" id="L68">		return project;</span>
+	}
+	public void setProject(String project) {
+<span class="fc" id="L71">		this.project = project;</span>
+<span class="fc" id="L72">	}</span>
+	public String getStartDate() {
+<span class="fc" id="L74">		return startDate;</span>
+	}
+	public void setStartDate(String startDate) {
+<span class="nc" id="L77">		this.startDate = startDate;</span>
+<span class="nc" id="L78">	}</span>
+	public String getEndDate() {
+<span class="fc" id="L80">		return endDate;</span>
+	}
+	public void setEndDate(String endDate) {
+<span class="nc" id="L83">		this.endDate = endDate;</span>
+<span class="nc" id="L84">	}</span>
+	public Integer getPriority() {
+<span class="fc" id="L86">		return priority;</span>
+	}
+	public void setPriority(Integer priority) {
+<span class="nc" id="L89">		this.priority = priority;</span>
+<span class="nc" id="L90">	}</span>
+	public User getManager() {
+<span class="fc" id="L92">		return manager;</span>
+	}
+	public void setManager(User manager) {
+<span class="nc" id="L95">		this.manager = manager;</span>
+<span class="nc" id="L96">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

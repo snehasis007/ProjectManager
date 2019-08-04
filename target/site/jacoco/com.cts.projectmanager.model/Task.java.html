@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Task.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectmanager</a> &gt; <a href="index.source.html" class="el_package">com.cts.projectmanager.model</a> &gt; <span class="el_source">Task.java</span></div><h1>Task.java</h1><pre class="source lang-java linenums">package com.cts.projectmanager.model;
+
+import org.springframework.data.annotation.Id;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Task extends PmBase{
+	@Id
+    private String id;
+	private ParentTask pTask;
+	private String isParent;
+	private String task;
+	private String startDate;
+	private String endDate;
+	private Integer priority;
+	private String isTaskCompleted;
+	private User userOwner;
+	private Project project;
+	private String projectID;
+<span class="fc" id="L21">	public Task() {</span>
+<span class="fc" id="L22">	}</span>
+	
+	public Task(String task,String startDate,String endDate
+<span class="nc" id="L25">			,Integer priority,String isParent,User userOwner,Project project) {</span>
+<span class="nc" id="L26">		this.task=task;</span>
+<span class="nc" id="L27">		this.startDate=startDate;</span>
+<span class="nc" id="L28">		this.endDate=endDate;</span>
+<span class="nc" id="L29">		this.priority=priority;</span>
+<span class="nc" id="L30">		this.isParent=isParent;</span>
+<span class="nc" id="L31">		this.userOwner=userOwner;</span>
+<span class="nc" id="L32">		this.project=project;</span>
+<span class="nc" id="L33">	}</span>
+	
+	public String getProjectID() {
+<span class="fc" id="L36">		return projectID;</span>
+	}
+
+	public void setProjectID(String projectID) {
+<span class="fc" id="L40">		this.projectID = projectID;</span>
+<span class="fc" id="L41">	}</span>
+
+	public Project getProject() {
+<span class="fc" id="L44">		return project;</span>
+	}
+
+	public void setProject(Project project) {
+<span class="fc" id="L48">		this.project = project;</span>
+<span class="fc" id="L49">	}</span>
+
+	public String getIsParent() {
+<span class="fc" id="L52">		return isParent;</span>
+	}
+
+	public void setIsParent(String isParent) {
+<span class="nc" id="L56">		this.isParent = isParent;</span>
+<span class="nc" id="L57">	}</span>
+
+	public User getUserOwner() {
+<span class="fc" id="L60">		return userOwner;</span>
+	}
+
+	public void setUserOwner(User userOwner) {
+<span class="fc" id="L64">		this.userOwner = userOwner;</span>
+<span class="fc" id="L65">	}</span>
+
+	public String getId() {
+<span class="fc" id="L68">		return id;</span>
+	}
+	public void setId(String id) {
+<span class="fc" id="L71">		this.id = id;</span>
+<span class="fc" id="L72">	}</span>
+	public ParentTask getpTask() {
+<span class="fc" id="L74">		return pTask;</span>
+	}
+	public void setpTask(ParentTask pTask) {
+<span class="fc" id="L77">		this.pTask = pTask;</span>
+<span class="fc" id="L78">	}</span>
+	public String getTask() {
+<span class="fc" id="L80">		return task;</span>
+	}
+	public void setTask(String task) {
+<span class="fc" id="L83">		this.task = task;</span>
+<span class="fc" id="L84">	}</span>
+	public String getStartDate() {
+<span class="fc" id="L86">		return startDate;</span>
+	}
+	public void setStartDate(String startDate) {
+<span class="nc" id="L89">		this.startDate = startDate;</span>
+<span class="nc" id="L90">	}</span>
+	public String getEndDate() {
+<span class="fc" id="L92">		return endDate;</span>
+	}
+	public void setEndDate(String endDate) {
+<span class="nc" id="L95">		this.endDate = endDate;</span>
+<span class="nc" id="L96">	}</span>
+	public Integer getPriority() {
+<span class="fc" id="L98">		return priority;</span>
+	}
+	public void setPriority(Integer priority) {
+<span class="nc" id="L101">		this.priority = priority;</span>
+<span class="nc" id="L102">	}</span>
+	public String getIsTaskCompleted() {
+<span class="fc" id="L104">		return isTaskCompleted;</span>
+	}
+	public void setIsTaskCompleted(String isTaskCompleted) {
+<span class="nc" id="L107">		this.isTaskCompleted = isTaskCompleted;</span>
+<span class="nc" id="L108">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

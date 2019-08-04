@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProjectController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectmanager</a> &gt; <a href="index.source.html" class="el_package">com.cts.projectmanager.web</a> &gt; <span class="el_source">ProjectController.java</span></div><h1>ProjectController.java</h1><pre class="source lang-java linenums">package com.cts.projectmanager.web;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cts.projectmanager.exception.PmException;
+import com.cts.projectmanager.model.ParentTask;
+import com.cts.projectmanager.model.Project;
+import com.cts.projectmanager.model.ServiceResult;
+import com.cts.projectmanager.model.Task;
+import com.cts.projectmanager.model.User;
+import com.cts.projectmanager.service.IProjectManager;
+
+
+
+
+@RestController
+@RequestMapping(value = &quot;services/projectservice&quot;)
+public class ProjectController {
+<span class="fc" id="L32">	private static final Logger logger = LoggerFactory.getLogger(ProjectController.class);</span>
+	private IProjectManager manager;
+	@Autowired
+<span class="fc" id="L35">	public ProjectController(IProjectManager manager) {</span>
+<span class="fc" id="L36">		this.manager=manager;</span>
+<span class="fc" id="L37">	}</span>
+	@RequestMapping(value = &quot;ping&quot;, method = RequestMethod.GET)
+	public String ping(){
+<span class="fc" id="L40">		 return &quot;Hi! \n #######ProjectManeger Service Working##########&quot;;</span>
+	}
+	
+	@RequestMapping(value = &quot;getalltasks&quot;, method = RequestMethod.GET)
+	public ResponseEntity&lt;ServiceResult&lt;Task&gt;&gt; getAllTasks(){
+<span class="fc" id="L45">		logger.info(&quot;inside getAllTasks&quot;);</span>
+<span class="fc" id="L46">		ServiceResult&lt;Task&gt; result=new ServiceResult&lt;Task&gt;();</span>
+		try {
+<span class="fc" id="L48">			List&lt;Task&gt; tasks=manager.getAllTasks();</span>
+<span class="fc" id="L49">			result.setDataList(tasks);</span>
+<span class="fc" id="L50">			result.setSuccess(true);</span>
+<span class="nc" id="L51">		}catch(PmException e) {</span>
+<span class="nc" id="L52">			result.setSuccess(false);</span>
+<span class="nc" id="L53">			result.setError(e.getError());</span>
+<span class="fc" id="L54">		}</span>
+<span class="fc" id="L55">		return ResponseEntity.status(HttpStatus.OK).body(result);</span>
+	}
+	@RequestMapping(value = &quot;getallparenttasks&quot;, method = RequestMethod.GET)
+	public ResponseEntity&lt;ServiceResult&lt;ParentTask&gt;&gt; getAllParentTasks(){
+<span class="fc" id="L59">		logger.info(&quot;inside getallparenttasks&quot;);</span>
+<span class="fc" id="L60">		ServiceResult&lt;ParentTask&gt; result=new ServiceResult&lt;ParentTask&gt;();</span>
+		try {
+<span class="fc" id="L62">			List&lt;ParentTask&gt; tasks=manager.getAllParentTasks();</span>
+<span class="fc" id="L63">			result.setDataList(tasks);</span>
+<span class="fc" id="L64">			result.setSuccess(true);</span>
+<span class="nc" id="L65">		}catch(PmException e) {</span>
+<span class="nc" id="L66">			result.setSuccess(false);</span>
+<span class="nc" id="L67">			result.setError(e.getError());</span>
+<span class="fc" id="L68">		}</span>
+<span class="fc" id="L69">		return ResponseEntity.status(HttpStatus.OK).body(result);</span>
+	}
+	@RequestMapping(value = &quot;getallusers&quot;, method = RequestMethod.GET)
+	public ResponseEntity&lt;ServiceResult&lt;User&gt;&gt; getAllUsers(){
+<span class="fc" id="L73">		logger.info(&quot;inside getAllUsers&quot;);</span>
+<span class="fc" id="L74">		ServiceResult&lt;User&gt; result=new ServiceResult&lt;User&gt;();</span>
+		try {
+<span class="fc" id="L76">			List&lt;User&gt; users=manager.getAllUsers();</span>
+<span class="fc" id="L77">			result.setDataList(users);</span>
+<span class="fc" id="L78">			result.setSuccess(true);</span>
+<span class="nc" id="L79">		}catch(PmException e) {</span>
+<span class="nc" id="L80">			result.setSuccess(false);</span>
+<span class="nc" id="L81">			result.setError(e.getError());</span>
+<span class="fc" id="L82">		}</span>
+<span class="fc" id="L83">		return ResponseEntity.status(HttpStatus.OK).body(result);</span>
+	}
+	@RequestMapping(value = &quot;getallprojects&quot;, method = RequestMethod.GET)
+	public ResponseEntity&lt;ServiceResult&lt;Project&gt;&gt; getAllProjects(){
+<span class="fc" id="L87">		logger.info(&quot;inside getallprojects&quot;);</span>
+<span class="fc" id="L88">		ServiceResult&lt;Project&gt; result=new ServiceResult&lt;Project&gt;();</span>
+		try {
+<span class="fc" id="L90">			List&lt;Project&gt; projects=manager.getAllProjects();</span>
+<span class="fc" id="L91">			result.setDataList(projects);</span>
+<span class="fc" id="L92">			result.setSuccess(true);</span>
+<span class="nc" id="L93">		}catch(PmException e) {</span>
+<span class="nc" id="L94">			result.setSuccess(false);</span>
+<span class="nc" id="L95">			result.setError(e.getError());</span>
+<span class="fc" id="L96">		}</span>
+<span class="fc" id="L97">		return ResponseEntity.status(HttpStatus.OK).body(result);</span>
+	}
+	@RequestMapping(value = &quot;savetask&quot;,method = RequestMethod.POST)
+	public ResponseEntity&lt;ServiceResult&lt;String&gt;&gt; saveOrUpdateTask(@RequestBody @Valid Task task){
+<span class="fc" id="L101">		logger.info(&quot;inside saveOrUpdateTask&quot;);</span>
+<span class="fc" id="L102">		ServiceResult&lt;String&gt; result=new ServiceResult&lt;String&gt;();</span>
+		try {
+
+<span class="fc" id="L105">			manager.createOrUpdateTask(task);</span>
+<span class="fc" id="L106">			result.setData(&quot;success&quot;);</span>
+<span class="fc" id="L107">			result.setSuccess(true);</span>
+<span class="nc" id="L108">		}catch(PmException e) {</span>
+<span class="nc" id="L109">			result.setSuccess(false);</span>
+<span class="nc" id="L110">			result.setError(e.getError());</span>
+<span class="fc" id="L111">		}</span>
+<span class="fc" id="L112">		return ResponseEntity.status(HttpStatus.OK).body(result);</span>
+	}
+	@RequestMapping(value = &quot;saveuser&quot;,method = RequestMethod.POST)
+	public ResponseEntity&lt;ServiceResult&lt;String&gt;&gt; saveOrUpdateUser(@RequestBody @Valid User user){
+<span class="fc" id="L116">		logger.info(&quot;inside saveOrUpdateUser&quot;);</span>
+<span class="fc" id="L117">		ServiceResult&lt;String&gt; result=new ServiceResult&lt;String&gt;();</span>
+		try {
+
+<span class="fc" id="L120">			manager.createOrUpdateUser(user);</span>
+<span class="fc" id="L121">			result.setData(&quot;success&quot;);</span>
+<span class="fc" id="L122">			result.setSuccess(true);</span>
+<span class="nc" id="L123">		}catch(PmException e) {</span>
+<span class="nc" id="L124">			result.setSuccess(false);</span>
+<span class="nc" id="L125">			result.setError(e.getError());</span>
+<span class="fc" id="L126">		}</span>
+<span class="fc" id="L127">		return ResponseEntity.status(HttpStatus.OK).body(result);</span>
+	}
+	@RequestMapping(value = &quot;saveproject&quot;,method = RequestMethod.POST)
+	public ResponseEntity&lt;ServiceResult&lt;String&gt;&gt; saveOrUpdateProject(@RequestBody @Valid Project project){
+<span class="fc" id="L131">		logger.info(&quot;inside saveOrUpdateProject&quot;);</span>
+<span class="fc" id="L132">		ServiceResult&lt;String&gt; result=new ServiceResult&lt;String&gt;();</span>
+		try {
+
+<span class="fc" id="L135">			manager.createOrUpdateProject(project);</span>
+<span class="fc" id="L136">			result.setData(&quot;success&quot;);</span>
+<span class="fc" id="L137">			result.setSuccess(true);</span>
+<span class="nc" id="L138">		}catch(PmException e) {</span>
+<span class="nc" id="L139">			result.setSuccess(false);</span>
+<span class="nc" id="L140">			result.setError(e.getError());</span>
+<span class="fc" id="L141">		}</span>
+<span class="fc" id="L142">		return ResponseEntity.status(HttpStatus.OK).body(result);</span>
+	}
+	@RequestMapping(value = &quot;removeuser&quot;,method = RequestMethod.POST)
+	public ResponseEntity&lt;ServiceResult&lt;String&gt;&gt; deleteUser(@RequestBody @Valid User user){
+<span class="fc" id="L146">		logger.info(&quot;inside deleteUser&quot;);</span>
+<span class="fc" id="L147">		ServiceResult&lt;String&gt; result=new ServiceResult&lt;String&gt;();</span>
+		try {
+
+<span class="fc" id="L150">			manager.deleteUser(user.getId());</span>
+<span class="fc" id="L151">			result.setData(&quot;success&quot;);</span>
+<span class="fc" id="L152">			result.setSuccess(true);</span>
+<span class="nc" id="L153">		}catch(PmException e) {</span>
+<span class="nc" id="L154">			result.setSuccess(false);</span>
+<span class="nc" id="L155">			result.setError(e.getError());</span>
+<span class="fc" id="L156">		}</span>
+<span class="fc" id="L157">		return ResponseEntity.status(HttpStatus.OK).body(result);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

@@ -1,0 +1,12 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+projectmanager,com.cts.projectmanager.model,PmError,24,0,0,0,10,0,7,0,7,0
+projectmanager,com.cts.projectmanager.model,User,19,27,0,0,8,12,2,8,2,8
+projectmanager,com.cts.projectmanager.model,Project,55,38,0,0,24,15,8,12,8,12
+projectmanager,com.cts.projectmanager.model,PmBase,3,16,0,0,2,6,0,2,0,2
+projectmanager,com.cts.projectmanager.model,ParentTask,0,17,0,0,0,7,0,5,0,5
+projectmanager,com.cts.projectmanager.model,Task,44,60,0,0,19,25,6,18,6,18
+projectmanager,com.cts.projectmanager.model,ServiceResult,13,18,0,0,5,8,4,5,4,5
+projectmanager,com.cts.projectmanager.web,ProjectController,64,197,0,0,24,61,0,11,0,11
+projectmanager,com.cts.projectmanager,ProjectManager,8,0,0,0,3,0,2,0,2,0
+projectmanager,com.cts.projectmanager.service,ProjectManagerImpl,126,132,8,4,35,36,7,10,1,10
+projectmanager,com.cts.projectmanager.exception,PmException,98,0,0,0,24,0,7,0,7,0

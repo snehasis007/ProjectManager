@@ -41,11 +41,13 @@ public class ProjectManagerImpl implements IProjectManager {
 		try {
 			if (tk.getProject() != null) {
 				tk.setProjectID(tk.getProject().getId());
-				taskRepo.save(tk);
+				
 
 				if (tk.getIsParent() != null && tk.getIsParent().equalsIgnoreCase("Y")) {
 					parentRepo.save(tk.getpTask());
+					tk.setpTask(new ParentTask());
 				}
+				taskRepo.save(tk);
 
 				List<Task> relatedtks = taskRepo.findByProjectID(tk.getProjectID());
 				if (relatedtks != null && relatedtks.size() > 0) {
