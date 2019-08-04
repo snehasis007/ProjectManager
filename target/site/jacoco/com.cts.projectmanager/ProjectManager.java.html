@@ -2,12 +2,18 @@
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 
 @SpringBootApplication
-<span class="nc" id="L8">public class ProjectManager {</span>
+<span class="nc" id="L10">public class ProjectManager extends SpringBootServletInitializer{</span>
 	public static void main(String[] args) {
-<span class="nc" id="L10">        SpringApplication.run(ProjectManager.class, args);</span>
-<span class="nc" id="L11">    }</span>
+<span class="nc" id="L12">        SpringApplication.run(ProjectManager.class, args);</span>
+<span class="nc" id="L13">    }</span>
+	@Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+<span class="nc" id="L16">        return builder.sources(ProjectManager.class);</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

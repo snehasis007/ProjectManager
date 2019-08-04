@@ -7,6 +7,6 @@ projectmanager,com.cts.projectmanager.model,ParentTask,0,17,0,0,0,7,0,5,0,5
 projectmanager,com.cts.projectmanager.model,Task,44,60,0,0,19,25,6,18,6,18
 projectmanager,com.cts.projectmanager.model,ServiceResult,13,18,0,0,5,8,4,5,4,5
 projectmanager,com.cts.projectmanager.web,ProjectController,64,197,0,0,24,61,0,11,0,11
-projectmanager,com.cts.projectmanager,ProjectManager,8,0,0,0,3,0,2,0,2,0
+projectmanager,com.cts.projectmanager,ProjectManager,17,0,0,0,4,0,3,0,3,0
 projectmanager,com.cts.projectmanager.service,ProjectManagerImpl,126,132,8,4,35,36,7,10,1,10
 projectmanager,com.cts.projectmanager.exception,PmException,98,0,0,0,24,0,7,0,7,0
